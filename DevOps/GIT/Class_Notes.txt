@@ -1,0 +1,267 @@
+
+#########################
+Day - 8 | 10th Apr. 2026
+#########################
+		
+		
+	- Version Control using GIT :::
+	
+	DevOps Stages :
+	
+		- Continuous Development:
+		
+		
+	What is Version Control System?
+	
+	Type of VCS 
+	
+	What is Git vs Github 
+	
+	Git File Workflow 
+	
+	Git Install Process 
+	
+	Git Misc. Commands
+	
+	Git Branching 
+	
+	Branching Strategies 
+	
+	Merge / Handling Merge Conflicts 
+	
+	Parallel Development 
+	
+	Remote Repository Management using GitHub 
+
+	
+	What is Version Control System?
+	
+		- Versions of the Files 
+	
+	
+	Create a Program: 
+
+	create index.html 
+	
+	<html>
+	----
+	--
+	---
+	-
+	-
+	-
+	-
+	-
+	</html>
+	
+	save index.html 
+	
+	test index.html 
+	
+	vi index.html 
+	
+	<html>
+	----
+	--
+	---
+	-asdfasd
+	-asdfasd
+	-asdfasdf
+	-asdfasd
+	-
+	</html>
+
+	save index.html 
+	
+	test index.html 
+	
+	File System :::
+	
+	Version Control System ::: 
+	
+		- It is used to Version Control the Changes 
+		
+		- It is used to keep track of the Changes
+		
+		
+	vi index.html --> Workspace Directory
+	
+	<html>
+	----
+	--
+	---
+	-asdfasd
+	-asdfasd
+	-asdfasdf
+	-asdfasd
+	-
+	</html>
+
+	save index.html 		===>    index.html_V1.0					# Version_Number/Tag_Name/Commit_id
+
+	test 
+	
+	vi index.html --> Workspace Directory
+	
+	<html>
+	----
+	--asdfasdfasdfsadf
+	---asdfasdf
+	-asdfasdadfasdf
+	-asdfasdasdfasd
+	-asdfasdf
+	-asdfasd
+	-
+	</html>
+
+	save index.html 		===>    index.html_V1.1
+	save index.html 		===>    index.html_V1.2
+	save index.html 		===>    index.html_V1.3
+	save index.html 		===>    index.html_V1.4
+	save index.html 		===>    index.html_V1.5 --> 
+	
+	
+	
+	Types of VCS :::
+	
+		- Local VCS 
+		
+		- Centralized VCS 
+		
+		- Distributed VCS  
+	
+	
+	- GIT ::
+	
+		- Git is an Open-Source Distributed Version Control System 
+		
+		- It is used to Version Control the Changes 
+		
+		- It is used to keep track of the Changes
+		
+		- It is used to perform Parallel Development using Branching Techniques.
+	
+	
+
+	- Distributed VCS :::
+	
+		Remote Server 		 - 	 GitHub / Azure Repository / GitLab / Bitbucket 							
+		
+		Local Machine
+		
+		
+	- Git File Workflow ::
+	
+	
+	Local Machine 													Remote Repositories 
+	
+	In Local Machine:
+	
+		- Install git client 
+		
+		- Install Git Client on Local Windows Machine / Mac Users
+		
+		
+		- git --version 
+		
+		
+		Windows Users:
+		
+			- GIT Bash 		# based on Linux bash commands
+			
+			- GIT CMD		# based on windows powershell commands
+			
+			- GIT GUI		# 
+			
+		
+		- git --version
+		
+		- Install Visual studio Code IDE 
+		
+		
+	- Git File Workflow :::
+
+
+	Local Machine 																						Remote Server 
+	
+	Install Git Client 																						GitHub 
+	
+	
+	Working Directory			 Staging/Index Area 				Local Repository					  Remote GitHub Repository
+	
+	 index.html 	----------->  index.html 	   ----------------> index.html_v1.0 	 ----------------> index.html_v1.0 
+					  git add						  git commit 						    git push
+		
+	 index.html 	----------->  index.html 	   ----------------> index.html_v1.1 	 ----------------> index.html_v1.1 
+					  git add						  git commit 						    git push
+		
+	 index.html 	----------->  index.html 	   ----------------> index.html_v1.2 	 ----------------> index.html_v1.2 
+					  git add						  git commit 						    git push
+
+	 index.html 	----------->  index.html 	   ----------------> index.html_v1.3 	 ----------------> index.html_v1.3 
+					  git add						  git commit 						    git push
+
+	 index.html 	----------->  index.html 	   ----------------> index.html_v1.4 	 ----------------> index.html_v1.4 
+					  git add						  git commit 						    git push
+
+	 index.html 	----------->  index.html 	   ----------------> index.html_v1.5 	 ----------------> index.html_v1.5 
+					  git add						  git commit 						    git push
+	
+	
+	
+	Developers' Workflow :::
+	
+		- Enhancement Project / Bugfix Project 
+		
+		- New Project 
+
+	git cli Commands ::
+	
+		
+		git clone 				# To Clone/Copy the entire Remote Repository to Local Machine
+		
+		git add 				# To Add the changes from working Directory to Staging Area 
+		
+		git commit 				# To Commit the changes from Staging Area to Local Repository 
+		
+		git push				# To Push the changes from Local Repository to Remote Repository  
+		
+		
+		git fetch/git pull :::
+		
+			- Both git fetch & git pull are used to handle the incremental changes from Remote Repositories
+			
+			- Git Fetch 		
+			
+				# It is used to just check for incremental changes in the Remote Repository, if the incremental changes exist, it will update the Local Repository, Not the Working Directory. 
+			
+				# used Git Merge/Pull to update the Working Directory explicitly.
+				
+			- Git Pull 
+			
+				# It is used to check for incremental changes in the Remote Repository, if the incremental changes exist, it will update the Local Repository as well as the Working Directory. 
+				
+				# git pull = git fetch + git merge
+
+				# As a best, it is always recommended to use git pull to keep the Local Repository in-sync with Remote Repository
+				
+				
+		Fork 				# Fork is used to Copy one Remote Repository to another Remote Repository
+		
+		
+		git init 			# To initialize a Local Repository
+							# It create a .git Directory 
+							# It create a default branch called 'master/main' branch
+							
+		git status			# To get the current status of the Local Repository of current branch
+		
+		git log 			# To get the list of commits & Keep track of the changes 
+		
+	
+Next :::
+
+	git cli commands :
+	
+		Local Machine 
+		
+		All Misc. git cli command 
