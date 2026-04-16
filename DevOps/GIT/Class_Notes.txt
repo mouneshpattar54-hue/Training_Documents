@@ -1284,3 +1284,153 @@ Next :::
 	GIT Branching Techniques 
 	
 	Working with Remote Repositories
+
+
+
+		
+##########################
+Day - 11 | 16th Apr. 2026
+##########################	
+
+
+	GIT Branching Techniques 
+	
+	Working with Remote Repositories
+	
+	
+		
+	GIT Rebase :::
+
+		- Rebase is used to maintain linear commit history 
+		- Rebase is used to keep the current branch in-sync with target branch 
+		- Rebase can prevent merge-conflicts in the target branch 
+		- As a best practise, it is always recommended to use rebase before merge
+
+		
+		- Repo1:
+		
+			master : cm1,cm2,cm3
+			
+					cm1,cm2,cm3,f1cm1,f1cm2,f1cm3 							# Upon merging feature1_Branch 
+					
+					cm1,cm2,cm3,f2cm1,f2cm2,f2cm3,f1cm1,f1cm2,f1cm3			# Upon merging feature2_Branch without Rebase  
+					
+					cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3			# Expected Linear Commit History
+
+					
+			
+				feature1_Branch : cm1,cm2,cm3
+					
+					cm1,cm2,cm3,f1cm1,f1cm2,f1cm3 
+					
+						git switch master 
+						
+						git merge feature1_Branch
+								
+				
+				feature2_Branch : cm1,cm2,cm3
+				
+					cm1,cm2,cm3,f2cm1,f2cm2,f2cm3 	
+					
+						git rebase master 									# Should be execute from current branch
+					
+						cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3 
+						
+						git switch master 	
+						
+						git merge feature2_Branch							# Should be execute from target branch			
+	
+	
+	
+	
+	GIT SQUASH :::	
+	
+		- Git Squash option is used to combine more than one commits into single commit point.
+	
+		
+		- Repo1:
+		
+			master : cm1,cm2,cm3	
+			
+					cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,.........................................,f1cm200		# Upon merging feature1_Branch 
+	
+				feature1_Branch : cm1,cm2,cm3	
+	
+							cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,.........................................,f1cm200
+		
+							git switch master 
+							
+							//git merge feature1_Branch					
+							
+							git merge --squash feature1_Branch 	
+								
+								git commit -m "Combined Changes" 	
+	
+	
+	
+	- GIT Cherry-pick :::
+		
+		- It is used to merge the specific commit(s) to the target branch.
+		
+		- As a best practise, it is NOT Recommended to use Cherry-pick.
+		
+		
+			git cherry-pick <commit_id> 
+			
+			git cherry-pick <commit_id> <commit_id> 
+			
+			
+			
+	- GIT STASH ::::
+	
+		- To maintain the uncommitted changes to the temporary area. 
+		
+		
+		- git status 
+
+
+		echo "rec1" >> file1.txt 
+		
+		git add . 
+		
+		- git stash save "valid message"		# Add an entry to the Stash List. 
+		
+		- git stash list						# To get the List of Item from Stash List.
+		
+		- git stash apply						# To apply the latest entry back to staging area from the stash list
+		
+		- git stash apply stash@{5}				# To apply the specific entry back to staging area from the stash list
+		  
+		- git stash drop 						# To drop/delete the latest entry from the stash list
+		
+		- git stash drop stash@{5}				# To drop/delete the specific entry from the stash list
+	
+		- git stash pop							# To apply the latest entry back to staging area and delete that entry from the stash list
+		
+		- git stash pop stash@{5}				# To apply the specific entry back to staging area and delete that entry from the stash list
+		
+		- git stash clear						# To Clean-up all the entries from the stash list
+	
+	
+	
+	
+	- Working with Remote Repositories ::::
+	
+		- GitHub/Azure Repository/GitLab/Bitbucket
+		
+		- GitHub 
+		
+		
+		- Create Remote Repository
+		
+		- Create Branches in Remote Repository
+	
+		- Merge the Changes 
+		
+		- git clone, fetch, pull, push ---->
+		
+		- git remote 
+	
+	
+	
+		- Pull Request : Is something created by the Developers and submitted to the Reviewer. 
